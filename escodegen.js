@@ -2447,6 +2447,13 @@
 
     merge(CodeGenerator.prototype, CodeGenerator.Expression);
 
+    CodeGenerator.prototype.ExperimentalSpreadProperty = function (expr, precedence, flags) {
+        return [
+            '...',
+            this.generateExpression(expr.argument, precedence, flags)
+        ].join('')
+    }
+
     CodeGenerator.prototype.generateExpression = function (expr, precedence, flags) {
         var result, type;
 
